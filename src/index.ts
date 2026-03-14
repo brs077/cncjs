@@ -13,6 +13,8 @@ import { registerManagementTools } from "./tools/management.js";
 import { registerAnalysisTools } from "./tools/analysis.js";
 import { registerDesignTools } from "./tools/design.js";
 import { registerFusion360Tools } from "./tools/fusion360.js";
+import { registerFreeCADTools } from "./tools/freecad.js";
+import { registerIllustratorTools } from "./tools/illustrator.js";
 
 const server = new McpServer({
   name: "cncjs-mcp",
@@ -28,6 +30,8 @@ registerManagementTools(server);
 registerAnalysisTools(server);
 registerDesignTools(server);
 registerFusion360Tools(server);
+registerFreeCADTools(server);
+registerIllustratorTools(server);
 
 // Auto-connect to CNCjs on startup (best-effort, non-blocking)
 async function tryConnect(): Promise<void> {
