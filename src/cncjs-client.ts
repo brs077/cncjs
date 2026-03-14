@@ -131,7 +131,7 @@ export class CNCjsClient {
       this.socket.on("connect", () => {
         clearTimeout(timeout);
         this._connected = true;
-        console.error(`[cncjs-mcp] Connected to CNCjs at ${this.config.url}`);
+        console.error(`[cnc-design-control-mcp] Connected to CNCjs at ${this.config.url}`);
         this.setupListeners();
         resolve();
       });
@@ -145,7 +145,7 @@ export class CNCjsClient {
       this.socket.on("disconnect", () => {
         this._connected = false;
         this._connectedPort = null;
-        console.error("[cncjs-mcp] Disconnected from CNCjs");
+        console.error("[cnc-design-control-mcp] Disconnected from CNCjs");
       });
     });
   }
@@ -199,14 +199,14 @@ export class CNCjsClient {
     this.socket.on("serialport:open", (data: any) => {
       this._connectedPort = data?.port || null;
       this._controllerType = data?.controllerType || "Grbl";
-      console.error(`[cncjs-mcp] Serial port opened: ${data?.port}`);
+      console.error(`[cnc-design-control-mcp] Serial port opened: ${data?.port}`);
     });
 
     this.socket.on("serialport:close", (_data: any) => {
       this._connectedPort = null;
       this._controllerType = null;
       this.resetState();
-      console.error("[cncjs-mcp] Serial port closed");
+      console.error("[cnc-design-control-mcp] Serial port closed");
     });
 
     // Workflow state
@@ -244,7 +244,7 @@ export class CNCjsClient {
 
     // Serial port error
     this.socket.on("serialport:error", (data: any) => {
-      console.error(`[cncjs-mcp] Serial port error: ${JSON.stringify(data)}`);
+      console.error(`[cnc-design-control-mcp] Serial port error: ${JSON.stringify(data)}`);
     });
 
     // Serial data parsing (alarms, errors, probes, console buffer)

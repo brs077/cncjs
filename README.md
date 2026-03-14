@@ -1,11 +1,11 @@
-# CNCjs MCP Server
+# CNC-design-control-MCP
 
-MCP server bridging Claude Code to CNCjs for GRBL CNC control (FoxAlien XE Ultra).
+MCP server for CNC design, CAM generation, and GRBL machine control (FoxAlien XE Ultra).
 
 ## Architecture
 
 ```
-Claude Code ←stdio/MCP→ cncjs-mcp (Node.js) ←Socket.IO v1→ CNCjs :8000 ←USB Serial→ GRBL
+Claude Code ←stdio/MCP→ CNC-design-control-MCP (Node.js) ←Socket.IO v1→ CNCjs :8000 ←USB Serial→ GRBL
 ```
 
 ## Tools (56 total)
@@ -87,7 +87,7 @@ npm run build
 
 Register with Claude Code:
 ```bash
-claude mcp add cncjs-mcp node /path/to/cncjs-mcp/build/index.js
+claude mcp add cnc-design-control-mcp node /path/to/CNC-design-control-MCP/build/index.js
 ```
 
 ### Environment Variables

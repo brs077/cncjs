@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// CNCjs MCP Server — bridges Claude Code to CNCjs for GRBL CNC control
+// CNC Design & Control MCP Server
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -18,7 +18,7 @@ import { registerIllustratorTools } from "./tools/illustrator.js";
 import { registerMarketplaceTools } from "./tools/marketplace.js";
 
 const server = new McpServer({
-  name: "cncjs-mcp",
+  name: "cnc-design-control-mcp",
   version: "1.0.0",
 });
 
@@ -39,9 +39,9 @@ registerMarketplaceTools(server);
 async function tryConnect(): Promise<void> {
   try {
     await client.connectToServer();
-    console.error("[cncjs-mcp] Auto-connected to CNCjs server");
+    console.error("[cnc-design-control-mcp] Auto-connected to CNCjs server");
   } catch (e: any) {
-    console.error(`[cncjs-mcp] CNCjs not available at startup (will connect on first use): ${e.message}`);
+    console.error(`[cnc-design-control-mcp] CNCjs not available at startup (will connect on first use): ${e.message}`);
   }
 }
 
@@ -49,13 +49,13 @@ async function tryConnect(): Promise<void> {
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("[cncjs-mcp] MCP server running on stdio");
+  console.error("[cnc-design-control-mcp] MCP server running on stdio");
 
   // Try to connect to CNCjs in background
   tryConnect();
 }
 
 main().catch((e) => {
-  console.error("[cncjs-mcp] Fatal error:", e);
+  console.error("[cnc-design-control-mcp] Fatal error:", e);
   process.exit(1);
 });

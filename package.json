@@ -1,7 +1,7 @@
 {
-  "name": "cncjs-mcp",
+  "name": "cnc-design-control-mcp",
   "version": "1.0.0",
-  "description": "MCP server bridging Claude Code to CNCjs for GRBL CNC control",
+  "description": "MCP server for CNC design, CAM generation, and GRBL machine control",
   "type": "module",
   "main": "build/index.js",
   "scripts": {
