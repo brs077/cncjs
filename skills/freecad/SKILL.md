@@ -1,35 +1,36 @@
 ---
 name: freecad
-description: Generate FreeCAD Python scripts for parametric CAD modeling and CAM toolpath generation. Use when the user wants to create FreeCAD models, generate CAM toolpaths with FreeCAD's Path workbench, or automate FreeCAD workflows.
+description: Generate FreeCAD Python scripts for 3D modeling and CAM toolpath generation. Use when the user wants to create 3D models or generate CAM toolpaths using FreeCAD (open-source CAD/CAM).
 ---
 
 # FreeCAD Integration
 
-Generate Python scripts for FreeCAD's API, supporting both GUI and headless (freecadcmd) operation.
+Generate Python scripts for FreeCAD's headless or GUI modes for 3D modeling and CAM.
 
-## Available Tools
+## Available MCP Tools
 
-- **generate_freecad_model** — Generate a FreeCAD Python script for parametric 3D modeling:
-  - Primitive shapes (boxes, cylinders, spheres, cones, tori)
+- `generate_freecad_model` — Generate a Python script to create 3D models in FreeCAD. Supports:
+  - Part primitives (boxes, cylinders, spheres, cones, tori)
   - Boolean operations (union, cut, intersection)
-  - Sketches with constraints and pad/pocket features
-  - Parameters: description, features, headless mode, outputPath
-- **generate_freecad_cam** — Generate a FreeCAD Path workbench script for CAM:
+  - Sketch-based features (extrude, revolve, pocket)
+  - Export to STEP, STL, or other formats
+  - Headless mode for automated workflows (`freecadcmd script.py`)
+- `generate_freecad_cam` — Generate a Python script for FreeCAD Path workbench (CAM). Creates:
   - Profile, pocket, drilling, and facing operations
-  - Tool definitions and feed/speed settings
-  - Post-processing to G-code
-  - Parameters: description, operations, tool, outputPath
-- **list_freecad_scripts** — List previously generated FreeCAD scripts
+  - Tool definitions with geometry
+  - Stock definition from bounding box
+  - G-code post-processing
+- `list_freecad_scripts` — List previously generated FreeCAD scripts
+
+## Script Execution
+
+- **GUI mode**: Run inside FreeCAD's Python console
+- **Headless mode**: `freecadcmd script.py` (no display needed, great for automation)
 
 ## Workflow
 
-1. Discuss the model or CAM operation with the user
-2. Generate the appropriate script
-3. Run in FreeCAD GUI or headless with `freecadcmd <script.py>`
-4. For CAM, post-process to G-code and load into CNCjs
-
-## Notes
-
-- FreeCAD is free and open-source — no license costs
-- Headless mode enables fully automated CAD/CAM pipelines
-- Path workbench generates G-code compatible with GRBL
+1. Discuss part geometry and machining requirements
+2. Generate the 3D model script with `generate_freecad_model`
+3. Generate CAM toolpaths with `generate_freecad_cam`
+4. Run scripts in FreeCAD to produce G-code
+5. Load G-code with `load_gcode` for execution
