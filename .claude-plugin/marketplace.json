@@ -1,0 +1,43 @@
+{
+  "name": "cncjs-mcp-marketplace",
+  "owner": {
+    "name": "brs077"
+  },
+  "metadata": {
+    "description": "CNC machine control, G-code generation, and CAD/CAM automation tools for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "cncjs-mcp",
+      "source": "./",
+      "description": "AI-powered CNC machine control, G-code generation, and CAD/CAM automation via CNCjs and GRBL",
+      "version": "1.0.0",
+      "author": {
+        "name": "brs077"
+      },
+      "homepage": "https://github.com/brs077/CNC-design-control-MCP",
+      "repository": "https://github.com/brs077/CNC-design-control-MCP",
+      "license": "MIT",
+      "keywords": [
+        "cnc",
+        "grbl",
+        "cncjs",
+        "gcode",
+        "mcp",
+        "machining",
+        "cam",
+        "cad"
+      ],
+      "category": "hardware",
+      "tags": [
+        "cnc",
+        "machining",
+        "grbl",
+        "gcode",
+        "cad-cam",
+        "manufacturing"
+      ]
+    }
+  ]
+}
