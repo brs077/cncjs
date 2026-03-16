@@ -1,32 +1,32 @@
 ---
 name: cnc-status
-description: Query CNC machine state, position, settings, and job progress. Use when the user asks about machine status, position, settings, loaded G-code, job progress, workflow state, or console output.
+description: Query CNC machine state, position, settings, and job progress. Use when the user asks about machine status, position, settings, or wants to monitor a running job.
 ---
 
 # CNC Machine Status & Monitoring
 
-Provide the user with current machine state and diagnostic information.
+Query the current state of the CNC machine. All tools are read-only and safe to use at any time.
 
-## Available Tools
+## Available MCP Tools
 
-- **get_connection_status** — Check if connected to CNCjs and which port
-- **get_machine_state** — Full GRBL state: positions, feed, spindle, overrides, buffer
-- **get_machine_position** — Current machine and work coordinates
-- **get_work_coordinate_offset** — Work coordinate system offsets (G54-G59)
-- **get_machine_settings** — All GRBL $-settings with descriptions
-- **get_parser_state** — Active G-code parser state (modal groups)
-- **get_loaded_gcode** — Currently loaded G-code file content
-- **get_job_progress** — Job completion percentage, elapsed time, remaining lines
-- **get_workflow_state** — Current workflow state (idle, running, paused)
-- **get_feeder_status** — G-code feeder queue status
-- **get_console_output** — Recent console messages (up to 200 lines)
-- **list_macros** — List all CNCjs macros
-- **list_machines** — List configured machine profiles
-- **get_alarm_info** — Look up GRBL alarm code meaning
-- **get_error_info** — Look up GRBL error code meaning
+- `get_machine_state` — Full GRBL state: positions, feed rate, spindle speed, overrides, buffer status
+- `get_machine_position` — Current machine and work coordinates (X, Y, Z)
+- `get_work_coordinate_offset` — Work coordinate system offsets (G54-G59)
+- `get_machine_settings` — All GRBL `$` settings with descriptions and units
+- `get_parser_state` — Active G-code modal state (units, distance mode, feed rate mode, etc.)
+- `get_loaded_gcode` — Currently loaded G-code content and metadata
+- `get_job_progress` — Job progress: lines sent/total, elapsed time, estimated remaining
+- `get_workflow_state` — CNCjs workflow state (idle, running, paused)
+- `get_feeder_status` — G-code feeder queue status
+- `get_console_output` — Recent serial console messages (last 200 lines)
+- `get_alarm_info` — Decode GRBL alarm codes with descriptions and solutions
+- `get_error_info` — Decode GRBL error codes with descriptions
+- `list_macros` — List all CNCjs macros
+- `list_machines` — List configured machine profiles
 
-## Notes
+## Tips
 
-- Most query tools require an active serial port connection
-- All query tools are read-only and zero-risk
-- Use `get_alarm_info` or `get_error_info` when the machine reports an alarm or error code
+- Use `get_machine_state` for a comprehensive snapshot
+- Use `get_job_progress` to monitor running jobs
+- Use `get_alarm_info` when the machine enters an alarm state
+- Use `get_console_output` to debug communication issues
