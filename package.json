@@ -1,13 +1,54 @@
 {
   "name": "cncjs-mcp",
   "version": "1.0.0",
-  "description": "MCP server bridging Claude Code to CNCjs for GRBL CNC control",
+  "description": "MCP server for CNC machine control, G-code generation, woodworking, and CAD/CAM automation via CNCjs and GRBL",
   "type": "module",
   "main": "build/index.js",
+  "bin": {
+    "cncjs-mcp": "build/index.js"
+  },
+  "mcpName": "io.github.brs077/cncjs-mcp",
+  "files": [
+    "build",
+    "skills",
+    "docs",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "node build/index.js",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "cnc",
+    "grbl",
+    "cncjs",
+    "gcode",
+    "machining",
+    "cam",
+    "cad",
+    "fusion360",
+    "freecad",
+    "woodworking",
+    "carpentry"
+  ],
+  "author": {
+    "name": "brs077",
+    "url": "https://github.com/brs077"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brs077/CNC-design-control-MCP.git"
+  },
+  "homepage": "https://github.com/brs077/CNC-design-control-MCP",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

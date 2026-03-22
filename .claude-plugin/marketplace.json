@@ -1,33 +1,42 @@
 {
   "name": "cncjs-mcp-marketplace",
   "owner": {
-    "name": "brs077"
+    "name": "brs077",
+    "url": "https://github.com/brs077"
   },
   "metadata": {
-    "description": "CNC machine control, G-code generation, and CAD/CAM automation tools for Claude Code",
+    "description": "CNC machine control, G-code generation, woodworking project planning, and CAD/CAM automation tools for Claude Code",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "cncjs-mcp",
       "source": "./",
-      "description": "AI-powered CNC machine control, G-code generation, and CAD/CAM automation via CNCjs and GRBL",
+      "description": "MCP server for CNC machine control, G-code generation, woodworking project planning, and CAD/CAM automation via CNCjs and GRBL",
       "version": "1.0.0",
       "author": {
-        "name": "brs077"
+        "name": "brs077",
+        "url": "https://github.com/brs077"
       },
       "homepage": "https://github.com/brs077/CNC-design-control-MCP",
-      "repository": "https://github.com/brs077/CNC-design-control-MCP",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/brs077/CNC-design-control-MCP.git"
+      },
       "license": "MIT",
+      "mcpName": "io.github.brs077/cncjs-mcp",
       "keywords": [
+        "mcp",
+        "mcp-server",
         "cnc",
         "grbl",
         "cncjs",
         "gcode",
-        "mcp",
         "machining",
         "cam",
-        "cad"
+        "cad",
+        "woodworking",
+        "carpentry"
       ],
       "category": "hardware",
       "tags": [
@@ -36,7 +45,8 @@
         "grbl",
         "gcode",
         "cad-cam",
-        "manufacturing"
+        "manufacturing",
+        "woodworking"
       ]
     }
   ]

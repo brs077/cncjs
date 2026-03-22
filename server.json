@@ -1,0 +1,40 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.brs077/cncjs-mcp",
+  "title": "CNCjs MCP Server",
+  "description": "MCP server for CNC machine control, G-code generation, woodworking project planning, and CAD/CAM automation via CNCjs and GRBL. Includes 62+ tools for machine operation, joinery, cut lists, materials lists, schematics, design file generation, and Fusion 360/FreeCAD/Illustrator integration.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/brs077/CNC-design-control-MCP",
+  "repository": {
+    "url": "https://github.com/brs077/CNC-design-control-MCP",
+    "source": "github",
+    "id": "brs077/CNC-design-control-MCP"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "cncjs-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "runtimeHint": "npx",
+      "environmentVariables": [
+        {
+          "name": "CNCJS_URL",
+          "description": "CNCjs server URL (default: http://localhost:8000)",
+          "isRequired": false,
+          "isSecret": false,
+          "default": "http://localhost:8000"
+        },
+        {
+          "name": "CNCJS_TOKEN",
+          "description": "CNCjs JWT authentication token (if access control is enabled)",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
